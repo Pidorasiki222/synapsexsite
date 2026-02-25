@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Synapse X</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synapse X | Premium</title>
     <style>
+        /* Анимации */
         @keyframes entrance {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -14,26 +16,45 @@
             50% { transform: translateY(-10px); }
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            background-color: #0c0c0c;
-            color: #ffffff;
-            font-family: 'Segoe UI', sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #000;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Полноэкранный фон из твоего фото */
+        .full-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Untitled design (1).jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(15px) brightness(0.3);
+            z-index: -1;
+            transform: scale(1.1);
         }
 
         .card {
-            background-color: #121212;
-            width: 800px;
-            padding: 40px;
-            border-radius: 40px;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            width: 850px;
+            padding: 50px;
+            border-radius: 40px; /* Bolder Radius */
             display: flex;
             align-items: center;
-            gap: 40px;
-            animation: entrance 0.6s ease-out;
+            gap: 50px;
+            animation: entrance 0.8s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
         }
 
         .photo-container {
@@ -41,15 +62,11 @@
         }
 
         .photo-container img {
-            width: 300px;
-            border-radius: 20px;
+            width: 350px;
+            border-radius: 25px;
             display: block;
             animation: floating 4s ease-in-out infinite;
-            transition: transform 0.4s;
-        }
-
-        .card:hover .photo-container img {
-            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
         }
 
         .info {
@@ -57,59 +74,80 @@
         }
 
         h1 {
-            font-size: 52px;
+            font-size: 56px;
             margin: 0 0 10px 0;
             font-weight: 800;
+            color: #fff;
+            letter-spacing: -1px;
         }
+
+        h1 span { color: #555; }
 
         p {
-            color: #999;
-            font-size: 16px;
-            margin: 0 0 25px 0;
+            color: #bbb;
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0 0 35px 0;
         }
 
-        .discord-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #5865F2;
-            color: #ffffff;
-            padding: 14px 28px;
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 16px 35px;
             border-radius: 18px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: background-color 0.3s;
+            font-weight: 700;
+            font-size: 16px;
+            transition: 0.3s;
+            display: inline-block;
+            text-align: center;
         }
 
-        .discord-link:hover {
+        /* Новая кнопка Download для synetworkcmp */
+        .btn-download {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-download:hover {
+            background-color: #cccccc;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-discord {
+            background-color: #5865F2;
+            color: #ffffff;
+        }
+
+        .btn-discord:hover {
             background-color: #4752c4;
-        }
-
-        .discord-icon {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3);
         }
     </style>
 </head>
 <body>
 
+    <div class="full-bg"></div>
+
     <div class="card">
         <div class="photo-container">
-            <img src="https://cdn.discordapp.com/attachments/1428045366204305438/1476107030925414525/image.png?ex=699feb4c&is=699e99cc&hm=fd0529e65f97cff51f60dae467db2ce0ee6fde75e5d0ceb14692420ff5cb018b&" alt="Synapse X">
+            <img src="Untitled design (1).jpg" alt="Synapse X">
         </div>
 
         <div class="info">
-            <h1>Synapse X</h1>
-            <p>Join our community for updates and support.</p>
+            <h1>Synapse <span>X</span></h1>
+            <p>The next generation of high-performance execution for <b>synetworkcmp</b>. Professional, stable, and built for you.</p>
             
-            <a href="https://discord.gg/vEyjVdBMab" class="discord-link">
-                <svg class="discord-icon" viewBox="0 0 24 24">
-                    <path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.972.074.074 0 0 0-.041-.104 13.204 13.204 0 0 1-1.906-.92.077.077 0 0 1-.007-.127c.126-.094.252-.192.375-.29a.077.077 0 0 1 .076-.006 14.707 14.707 0 0 0 12.062 0 .077.077 0 0 1 .077.006c.123.098.249.196.376.29a.077.077 0 0 1-.006.127 13.14 13.14 0 0 1-1.906.92.074.074 0 0 0-.041.104c.36.68.76 1.33 1.226 1.972a.078.078 0 0 0 .084.028 19.838 19.838 0 0 0 5.993-3.03.077.077 0 0 0 .032-.057c.504-5.385-.86-10.027-3.666-14.66a.07.07 0 0 0-.033-.027ZM8.02 15.33c-1.18 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.18 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z"/>
-                </svg>
-                Join Discord
-            </a>
+            <div class="btn-group">
+                <a href="https://github.com/ваша-ссылка-на-проект" class="btn btn-download">Project</a>
+                <a href="https://discord.gg/vEyjVdBMab" class="btn btn-discord">Discord</a>
+            </div>
         </div>
     </div>
 
